@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Simle Calculator</h2>
+
+        <div class="operation">
+            <input type="number" id="num1" placeholder="Number 1">
+            +
+            <input type="number" id="num2" placeholder="Number 2">
+            <button onclick="realizarOperacion('sumar')">=</button>
+            <input type="text" id="resultSuma" class="result" readonly>
+        </div>
+
+        <div class="operation">
+            <input type="number" id="num1Resta" placeholder="Number 1">
+            -
+            <input type="number" id="num2Resta" placeholder="Number 2">
+            <button onclick="realizarOperacion('restar')">=</button>
+            <input type="text" id="resultResta" class="result" readonly>
+        </div>
+
+        <div class="operation">
+            <input type="number" id="num1Multiplicacion" placeholder="Number 1">
+            ×
+            <input type="number" id="num2Multiplicacion" placeholder="Number 2">
+            <button onclick="realizarOperacion('multiplicar')">=</button>
+            <input type="text" id="resultMultiplicacion" class="result" readonly>
+        </div>
+
+        <div class="operation">
+            <input type="number" id="num1Division" placeholder="Number 1">
+            ÷
+            <input type="number" id="num2Division" placeholder="Number 2">
+            <button onclick="realizarOperacion('dividir')">=</button>
+            <input type="text" id="resultDivision" class="result" readonly>
+        </div>
+    </div>
+
+    <script>
+        function realizarOperacion(operacion) {
+            let num1, num2, resultado;
+            if (operacion === 'sumar') {
+                num1 = parseFloat(document.getElementById("num1").value);
+                num2 = parseFloat(document.getElementById("num2").value);
+                resultado = num1 + num2;
+                document.getElementById("resultSuma").value = resultado;
+            } 
+            else if (operacion === 'restar') {
+                num1 = parseFloat(document.getElementById("num1Resta").value);
+                num2 = parseFloat(document.getElementById("num2Resta").value);
+                resultado = num1 - num2;
+                document.getElementById("resultResta").value = resultado;
+            } 
+            else if (operacion === 'multiplicar') {
+                num1 = parseFloat(document.getElementById("num1Multiplicacion").value);
+                num2 = parseFloat(document.getElementById("num2Multiplicacion").value);
+                resultado = num1 * num2;
+                document.getElementById("resultMultiplicacion").value = resultado;
+            } 
+            else if (operacion === 'dividir') {
+                num1 = parseFloat(document.getElementById("num1Division").value);
+                num2 = parseFloat(document.getElementById("num2Division").value);
+                if (num2 === 0) {
+                    alert("Cant divide with 0");
+                    return;
+                }
+                resultado = num1 / num2;
+                document.getElementById("resultDivision").value = resultado;
+            }
+        }
+    </script>
+</body>
+</html>
